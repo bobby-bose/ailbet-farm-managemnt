@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management Simulator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            /* Set the background image */
+            background-image: url('{{ url_for('static', filename='images/farm.jpeg') }}');
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            height: 100vh; /* Full viewport height */
+            color: white; /* Text color */
+        }
+        .content {
+            text-align: center; /* Center text */
+            padding: 20px; /* Padding around content */
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a translucent background */
+            border-radius: 10px; /* Optional: Rounded corners */
+            margin-top: 20%; /* Center vertically */
+        }
+        p{
+            margin-top:4%;
+            font-size: x-large;
+        }
+        h1{
+            font-size:xx-large;
+        }
+        .nav-button {
+            margin: 0 5px;
+            color: black;
+            background-color: transparent;
+            border: 2px solid rgba(128, 128, 128, 0.5); /* Greyish border color with transparency */
+            border-radius: 20px; /* Round borders */
+            padding: 10px 15px; /* Padding for better button appearance */
+        }
+        .nav-button.active {
+            color: white;
+            background-color: green;
+        }
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center; /* Vertically center items */
+        }
+        nav {
+            display: flex; /* Ensure buttons are aligned horizontally */
+        }
+    </style>
+</head>
+<body>
+    <header class="p-3">
+        <h1 >Farm Management Simulator</h1>
+        <nav>
+            <a href="/" class="nav-button" onclick="setActive(this)">Home</a>
+            <a href="/paddocks" class="nav-button" onclick="setActive(this)">Paddocks</a>
+            <a href="/mobs" class="nav-button" onclick="setActive(this)">Mobs</a>
+            <a href="/stocks" class="nav-button" onclick="setActive(this)">Stocks</a>
+            <a href="/move_mob" class="nav-button" onclick="setActive(this)">Move Mob</a>
+        </nav>
+        <div class="dropdown" style="margin-top: 10px;">
+            <button class="btn btn-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none; background: transparent; font-size: xx-large;">
+                {{ current_date }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/movenextday" id="move-next-day">Move to next Day</a>
+                <a class="dropdown-item" href="/reset" id="reset">Reset</a>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <h1>Welcome to Farm Management Simulator</h1>
+        <p>
+            The Farm Management Simulator is designed to help farmers and agribusinesses efficiently manage their resources, improve productivity, and streamline operations. 
+            With our intuitive interface, you can easily track livestock, monitor paddock conditions, manage stocks, and make informed decisions to enhance your farming practices.
+        </p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+   
+</body>
+</html>
